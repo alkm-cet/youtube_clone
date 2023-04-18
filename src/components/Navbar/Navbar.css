@@ -1,0 +1,77 @@
+.Navbar {
+    width: 100%;
+    height: 60px;
+    /* border: 1px solid black; */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.logodiv {
+    /* border: 1px solid black; */
+    height: 100%;
+    padding: 0px 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.searchdiv {
+    border: 1px solid black;
+    max-width: 720px;
+    width: 40%;
+    height: 100%;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.searchdiv input {
+    width: calc(100% - 60px);
+    height: 40px;
+    border: 1px solid lightgray;
+    border-right: none;
+    border-radius: 50px 0px 0px 50px;
+    padding-left: 10px;
+}
+
+.searchdiv button {
+    cursor: pointer;
+    width: 60px;
+    height: 40px;
+    position: absolute;
+    right: 50px;
+    background-color: rgb(248, 248, 248);
+    border: 1px solid lightgray;
+    border-radius: 0px 50px 50px 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all .2s ease;
+}
+
+.searchdiv button:hover {
+    background-color: rgb(230, 228, 228);
+}
+
+
+/* infodiv */
+
+.infodiv {
+    /* border: 1px solid black; */
+    height: 100%;
+    width: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
