@@ -1,0 +1,10 @@
+.MainPageLeft {
+    width: 100%;
+    /* min-width: calc(100% - 250px); */
+    max-height: calc(100vh - 60px);
+    /* border: 1px solid black; */
+
+    flex-grow: 2;
+    overflow-x: hidden;
+
+}

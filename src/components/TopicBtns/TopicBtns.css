@@ -1,0 +1,44 @@
+.TopicBtns {
+    /* width: calc(100% - 250px); */
+    width: auto;
+    height: 60px;
+
+    background-color: white;
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 15px;
+
+    /* flex-shrink: 1; */
+    flex-grow: 1;
+
+    overflow-x: auto;
+
+    /* border: 1px solid black; */
+}
+
+.TopicBtns::-webkit-scrollbar {
+    display: none;
+}
+
+.topicBTN {
+    cursor: pointer;
+    width: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: gainsboro;
+    white-space: nowrap;
+
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topicBTN:hover {
+    background-color: rgb(204, 204, 204);
+}
