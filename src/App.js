@@ -2,22 +2,23 @@ import { useState } from 'react';
 import './App.css';
 //COMPONENTS
 import Navbar from './components/Navbar/Navbar';
-import Leftbar from './components/Leftbar/Leftbar';
 import MainPage from './components/MainPage/MainPage';
+//ROUTER
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+//CONTEXT
+import VideoContextProvider from './components/context/VideoContext';
 
 function App() {
 
-  const [isSideBarOpen, setIsSideBarOpen] = useState(true)
-
-  const handleSideBar = () => {
-    setIsSideBarOpen(prev => !prev)
-  }
-
   return (
-    <div className="App">
-      <Navbar isSideBarOpen={isSideBarOpen} setIsSideBarOpen={setIsSideBarOpen} handleSideBar={handleSideBar} />
-      <MainPage isSideBarOpen={isSideBarOpen} />
-    </div>
+    <VideoContextProvider>
+      <div className="App">
+        <Router>
+          <Navbar />
+          <MainPage />
+        </Router >
+      </div>
+    </VideoContextProvider>
   );
 }
 

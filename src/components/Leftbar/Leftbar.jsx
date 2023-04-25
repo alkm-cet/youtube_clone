@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Leftbar.css';
 //IMAGES
 import homeicon from '../../images/homeicon.png'
@@ -18,13 +18,18 @@ import music from '../../images/music.png'
 import live from '../../images/live.png'
 import gaming from '../../images/gaming.png'
 import sports from '../../images/sports.png'
-
 import premium from '../../images/premium.png'
 import studio from '../../images/studio.png'
 import YTmusic from '../../images/YTmusic.png'
 import kids from '../../images/kids.png'
+//CONTEXT
+import { VideoContext } from '../context/VideoContext';
+// ROUTER
+import { Link } from 'react-router-dom';
 
-function Leftbar({ isSideBarOpen }) {
+function Leftbar() {
+
+    const { isSideBarOpen } = useContext(VideoContext)
     return (
         <>
             {
@@ -32,10 +37,12 @@ function Leftbar({ isSideBarOpen }) {
                     ? <div className='Leftbar'>
 
                         <section className='section1'>
-                            <div className="sectionBTN">
-                                <img src={homeicon} alt="" style={{ width: '25px' }} />
-                                <p style={{ fontSize: '14px' }}>Home</p>
-                            </div>
+                            <Link to='/' style={{
+                                color: 'black', textDecoration: 'none'
+                            }}><div className="sectionBTN">
+                                    <img src={homeicon} alt="" style={{ width: '25px' }} />
+                                    <p style={{ fontSize: '14px' }}>Home</p>
+                                </div></Link>
                             <div className="sectionBTN">
                                 <img src={shortsicon} alt="" style={{ width: '25px' }} />
                                 <p style={{ fontSize: '14px' }}>Shorts</p>
@@ -141,7 +148,29 @@ function Leftbar({ isSideBarOpen }) {
                         </section>
 
                     </div>
-                    : null
+                    : <div className="leftbarclosed">
+                        <Link to='/' style={{
+                            color: 'black', textDecoration: 'none'
+                        }}><div className="sectionclosedBTN">
+                                <img src={homeicon} alt="" style={{ width: '25px' }} />
+                                <p style={{ fontSize: '12px' }}>Home</p>
+                            </div></Link>
+
+                        <div className="sectionclosedBTN">
+                            <img src={shortsicon} alt="" style={{ width: '25px' }} />
+                            <p style={{ fontSize: '12px' }}>Shorts</p>
+                        </div>
+
+                        <div className="sectionclosedBTN">
+                            <img src={subscriptionicon} alt="" style={{ width: '25px' }} />
+                            <p style={{ fontSize: '12px' }}>Subscriptions</p>
+                        </div>
+
+                        <div className="sectionclosedBTN">
+                            <img src={bookcaseicon} alt="" style={{ width: '25px' }} />
+                            <p style={{ fontSize: '12px' }}>Library</p>
+                        </div>
+                    </div>
             }
         </>
 

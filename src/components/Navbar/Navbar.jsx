@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Navbar.css';
 //IMAGES
 import logo from '../../images/logo.png';
 import avatar from '../../images/avatar.png'
+//ROUTER
+import { Link } from 'react-router-dom';
+//CONTEXT
+import { VideoContext } from '../context/VideoContext';
 
-function Navbar({ isSideBarOpen, setIsSideBarOpen, handleSideBar }) {
+
+function Navbar() {
+
+  const { handleSideBar  } = useContext(VideoContext);
 
   return (
     <div className='Navbar'>
@@ -13,7 +20,7 @@ function Navbar({ isSideBarOpen, setIsSideBarOpen, handleSideBar }) {
         <span class="material-symbols-outlined icons" onClick={handleSideBar}>
           menu
         </span>
-        <img src={logo} alt="" style={{ width: '90px', cursor: 'pointer' }} />
+        <Link to='/'><img src={logo} alt="" style={{ width: '90px', cursor: 'pointer' }} /></Link>
       </div>
 
       <div className="searchdiv">
