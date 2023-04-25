@@ -25,16 +25,28 @@ function AllVideoPage() {
         }
     }
 
+    const handleVideoTime = (durationString) => {
+        const regex = /PT(\d+)M(\d+)S/;
+        const matches = durationString.match(regex);
+        if (!matches) {
+            return null;
+        }
+        const [fullMatch, minutes, seconds] = matches;
+        const formattedMinutes = minutes.padStart(2, '0');
+        const formattedSeconds = seconds.padStart(2, '0');
+        return `${formattedMinutes}:${formattedSeconds}`;
+    }
+
     return (
         <div className='AllVideoPage'>
-            <TopicBtns/>
-
+            <TopicBtns />
             {
                 video?.items?.map(vid =>
-                    <Link style={{color:'black',textDecoration:'none'}} to={`/SingleVideoPage/${vid?.id}`}>
+                    <Link style={{ color: 'black', textDecoration: 'none' }} to={`/SingleVideoPage/${vid?.id}`}>
                         <div key={vid?.id} className="videodiv">
                             <div className="videodivtop">
                                 <img className='videoimg' src={vid?.snippet?.thumbnails?.high?.url} alt="" />
+                                <div className='videoTime'>{handleVideoTime(vid?.contentDetails?.duration)}</div>
                             </div>
 
                             <div className="videodivmid">

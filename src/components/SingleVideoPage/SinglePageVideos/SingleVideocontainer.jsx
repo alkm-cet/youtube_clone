@@ -23,6 +23,18 @@ function SingleVideo() {
     }
   }
 
+  const handleVideoTime = (durationString) => {
+    const regex = /PT(\d+)M(\d+)S/;
+    const matches = durationString.match(regex);
+    if (!matches) {
+      return null;
+    }
+    const [fullMatch, minutes, seconds] = matches;
+    const formattedMinutes = minutes.padStart(2, '0');
+    const formattedSeconds = seconds.padStart(2, '0');
+    return `${formattedMinutes}:${formattedSeconds}`;
+  }
+
   return (
     <>
 
@@ -33,6 +45,7 @@ function SingleVideo() {
 
               <div className="singlevideocontleft">
                 <img className='videocontainerIMG' src={vid?.snippet?.thumbnails?.medium?.url} alt="" />
+                <div className='videoTime'>{handleVideoTime(vid?.contentDetails?.duration)}</div>
               </div>
 
               <div className="singlevideocontright">
