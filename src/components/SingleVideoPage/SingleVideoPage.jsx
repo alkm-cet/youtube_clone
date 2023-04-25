@@ -2,7 +2,9 @@ import React, { useContext } from 'react'
 import './SingleVideoPage.css'
 import { useParams } from 'react-router-dom'
 //CONTEXT
-import { VideoContext } from '../context/VideoContext'
+import { VideoContext } from '../context/VideoContext';
+// PAGES
+import SingleVideocontainer from './SinglePageVideos/SingleVideocontainer'
 
 function SingleVideoPage() {
 
@@ -13,9 +15,17 @@ function SingleVideoPage() {
     return (
         <div className='SingleVideoPage'>
 
-            <iframe className='iframe' src={`https://www.youtube.com/embed/${id}`} allowfullscreen frameborder="0" allow='autoplay'>
+            <div className="singlepageleft">
+                <iframe className='iframe' src={`https://www.youtube.com/embed/${id}`} allowfullscreen frameborder="0" allow='autoplay'></iframe>
 
-            </iframe>
+                <h3 style={{ fontSize: '20px' }}>{SingleVideo?.snippet?.title}</h3>
+            </div>
+
+            <div className="singlepageright">
+                <SingleVideocontainer/>
+            </div>
+
+
         </div>
     )
 }

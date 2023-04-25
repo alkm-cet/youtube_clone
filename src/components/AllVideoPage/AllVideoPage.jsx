@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import './AllVideoPage.css'
-import axios from 'axios';
 //ROUTER
 import { Link } from 'react-router-dom';
 // CONTEXT
 import { VideoContext } from '../context/VideoContext';
+//PAGES
+import TopicBtns from '../TopicBtns/TopicBtns'
 
 function AllVideoPage() {
 
@@ -26,6 +27,7 @@ function AllVideoPage() {
 
     return (
         <div className='AllVideoPage'>
+            <TopicBtns/>
 
             {
                 video?.items?.map(vid =>
@@ -44,7 +46,6 @@ function AllVideoPage() {
                             <div className="videodivbottom">
                                 <p style={{ color: 'grey', fontSize: '14px' }}>{vid?.snippet?.channelTitle
                                 }</p>
-
 
                                 {
                                     (vid?.statistics?.viewCount).length > 6

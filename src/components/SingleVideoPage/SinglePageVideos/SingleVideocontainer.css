@@ -1,0 +1,39 @@
+.SingleVideocontainer {
+    width: 400px;
+    height: 100px;
+    /* border: 1px solid black; */
+
+    display: flex;
+    gap: 5px;
+}
+
+/* --------------------singlevideocontleft */
+.singlevideocontleft {
+    /* border: 1px solid black; */
+    height: 100%;
+    width: auto;
+}
+
+.videocontainerIMG {
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* ---------------- singlevideocontright */
+.singlevideocontright {
+    width: auto;
+    /* border: 1px solid red; */
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    flex-grow: 1;
+}
+
+.singlevideocontrightbottom {
+    /* border: 1px solid green; */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
