@@ -50,7 +50,7 @@ function AllVideoPage() {
                             </div>
 
                             <div className="videodivmid">
-                                <img style={{ width: '40px', height: '40px', borderRadius: '50%' }} src={vid?.snippet?.thumbnails?.medium?.url} alt="" />
+                                <img style={{ width: '40px', height: '40px', borderRadius: '50%',objectFit:'cover' }} src={vid?.snippet?.thumbnails?.medium?.url} alt="" />
 
                                 <p style={{ fontWeight: '500' }}>{vid?.snippet?.title}</p>
                             </div>
