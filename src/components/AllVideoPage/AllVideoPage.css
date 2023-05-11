@@ -38,15 +38,16 @@
 
 .videoTime {
     width: auto;
-    height: 20px;
+    height: 18px;
     position: absolute;
-    right: 10px;
-    bottom: 10px;
+    font-weight: 600;
+    right: 6px;
+    bottom: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 3px;
-    background-color: rgba(0, 0, 0, 0.568);
+    padding: 4px;
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 5px;
     color: white;
     font-size: 13px;

@@ -9,40 +9,18 @@ import TopicBtns from '../TopicBtns/TopicBtns'
 
 function AllVideoPage() {
 
-    const { video } = useContext(VideoContext);
-
-    function formatDate(date) {
-        const diff = Math.floor((new Date() - new Date(date)) / 1000); // zaman farkını saniye cinsinden hesapla
-
-        if (diff < 60) {
-            return `${diff} sec ago`; // 1 dakikadan azsa saniye cinsinden yazdır
-        } else if (diff < 3600) {
-            return `${Math.floor(diff / 60)} min ago`; // 1 saatten azsa dakika cinsinden yazdır
-        } else if (diff < 86400) {
-            return `${Math.floor(diff / 3600)} hours ago`; // 1 günden azsa saat cinsinden yazdır
-        } else {
-            return `${Math.floor(diff / 86400)} day ago`; // 1 günden fazlaysa gün cinsinden yazdır
-        }
-    }
-
-    const handleVideoTime = (durationString) => {
-        const regex = /PT(\d+)M(\d+)S/;
-        const matches = durationString.match(regex);
-        if (!matches) {
-            return null;
-        }
-        const [fullMatch, minutes, seconds] = matches;
-        const formattedMinutes = minutes.padStart(2, '0');
-        const formattedSeconds = seconds.padStart(2, '0');
-        return `${formattedMinutes}:${formattedSeconds}`;
-    }
+    const { video,
+        setIsSideBarOpen,
+        formatDate,
+        handleVideoTime,
+     } = useContext(VideoContext);
 
     return (
         <div className='AllVideoPage'>
             <TopicBtns />
             {
                 video?.items?.map(vid =>
-                    <Link style={{ color: 'black', textDecoration: 'none' }} to={`/SingleVideoPage/${vid?.id}`}>
+                    <Link onClick={() => setIsSideBarOpen(false) } style={{ color: 'black', textDecoration: 'none' }} to={`/SingleVideoPage/${vid?.id}`}>
                         <div key={vid?.id} className="videodiv">
                             <div className="videodivtop">
                                 <img className='videoimg' src={vid?.snippet?.thumbnails?.high?.url} alt="" />
@@ -50,7 +28,7 @@ function AllVideoPage() {
                             </div>
 
                             <div className="videodivmid">
-                                <img style={{ width: '40px', height: '40px', borderRadius: '50%',objectFit:'cover' }} src={vid?.snippet?.thumbnails?.medium?.url} alt="" />
+                                <img style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} src={vid?.snippet?.thumbnails?.medium?.url} alt="" />
 
                                 <p style={{ fontWeight: '500' }}>{vid?.snippet?.title}</p>
                             </div>
@@ -61,8 +39,8 @@ function AllVideoPage() {
 
                                 {
                                     (vid?.statistics?.viewCount).length > 6
-                                        ? <p style={{ color: 'grey', fontSize: '14px' }}>{String(vid?.statistics?.viewCount).slice(0, 2)}M views - {formatDate(vid?.snippet?.publishedAt)} </p>
-                                        : <p style={{ color: 'grey', fontSize: '14px' }}>{String(vid?.statistics?.viewCount).slice(0, 2)}K views -
+                                        ? <p style={{ color: 'grey', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '5px' }}>{String(vid?.statistics?.viewCount).slice(0, 2)}M views <div style={{ width: '1px', height: '1px', border: '1px solid grey' }}></div> {formatDate(vid?.snippet?.publishedAt)} </p>
+                                        : <p style={{ color: 'grey', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '5px' }}>{String(vid?.statistics?.viewCount).slice(0, 2)}K views <div style={{ width: '1px', height: '1px', border: '1px solid grey' }}></div>
                                             {formatDate(vid?.snippet?.publishedAt)}</p>
                                 }
 

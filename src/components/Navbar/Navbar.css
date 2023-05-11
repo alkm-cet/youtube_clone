@@ -9,7 +9,7 @@
     padding: 0px 40px 0px 20px;
     background-color: white;
 
-    position: sticky;
+    /* position: sticky; */
     top: 0;
 }
 
@@ -56,6 +56,13 @@
     padding-left: 10px;
 }
 
+.searchdiv input:focus,
+textarea:focus {
+    border: 1px solid dodgerblue;
+    outline: none;
+}
+
+
 .searchdiv button {
     cursor: pointer;
     width: 60px;
@@ -83,10 +90,11 @@
     height: 40px;
 
     border-radius: 50%;
-
+    /* border: 1px solid black; */
     display: flex !important;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .icons:hover {
@@ -106,3 +114,8 @@
     align-items: center;
     gap: 15px;
 }
+
+/* .infodiv span {
+    
+
+} */

@@ -3,8 +3,9 @@
     /* min-width: calc(100% - 250px); */
     max-height: calc(100vh - 60px);
     /* border: 1px solid black; */
-
+    /* height: auto; */
     flex-grow: 2;
     overflow-x: hidden;
+    /* border: 3px solid red; */
 
 }

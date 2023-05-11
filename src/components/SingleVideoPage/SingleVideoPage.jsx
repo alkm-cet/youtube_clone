@@ -11,7 +11,8 @@ import dislike from '../../images/dislike.png'
 import share from '../../images/share.png'
 import download from '../../images/download.png'
 import donation from '../../images/donation.png'
-import clip from '../../images/clip.png'
+import clip from '../../images/clip.png';
+import more from '../../images/more.png'
 
 
 function SingleVideoPage() {
@@ -61,7 +62,7 @@ function SingleVideoPage() {
 
                         <div className="videoinfochannalname">
                             <h4>{SingleVideo?.snippet?.channelTitle}</h4>
-                            <p>1m subscribers</p>
+                            <p style={{ fontSize: '12px', color: 'grey' }}>12.6M subscribers</p>
                         </div>
 
                         <button className='infoBTN'>Join</button>
@@ -69,11 +70,19 @@ function SingleVideoPage() {
                     </div>
 
                     <div className="svdiright">
-                        <button className='infoBTN'>
-                            <img src={like} alt="" style={{ width: '20px' }} />
-                            Like
-                            <img src={dislike} alt="" style={{ width: '20px' }} />
-                            Dislike
+                        <button className='infoLikeBTN'>
+                            <button className="likeBTN">
+                                <img src={like} alt="" style={{ width: '20px' }} />
+                                {
+                                    (SingleVideo?.statistics?.likeCount)?.length < 7
+                                        ? (SingleVideo?.statistics?.likeCount)?.slice(0, 2) + 'K'
+                                        : (SingleVideo?.statistics?.likeCount)?.slice(0, 2) + 'M'
+                                }
+                            </button>
+                            <div style={{ width: '1px', height: '70%', borderLeft: '1px solid grey' }}></div>
+                            <button className="dislikeBTN">
+                                <img src={dislike} alt="" style={{ width: '20px' }} />
+                            </button>
                         </button>
                         <button className='infoBTN'>
                             <img src={share} alt="" style={{ width: '20px' }} />
@@ -83,11 +92,14 @@ function SingleVideoPage() {
                             <img src={download} alt="" style={{ width: '20px' }} />
                             Download</button>
                         <button className='infoBTN'>
+                            <img src={more} alt="" style={{ width: '20px' }} />
+                        </button>
+                        {/* <button className='infoBTN'>
                             <img src={donation} alt="" style={{ width: '20px' }} />
                             Thanks</button>
                         <button className='infoBTN'>
                             <img src={clip} alt="" style={{ width: '20px' }} />
-                            Clip</button>
+                            Clip</button> */}
                     </div>
                 </div>
 
@@ -107,7 +119,6 @@ function SingleVideoPage() {
 
                     <p>
                         {String(SingleVideo?.snippet?.description).slice(0, 600)}...
-
                     </p>
                 </div>
 

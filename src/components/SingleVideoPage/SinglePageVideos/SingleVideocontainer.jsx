@@ -4,6 +4,9 @@ import './SingleVideocontainer.css';
 import { VideoContext } from '../../context/VideoContext';
 //ROUTER
 import { Link } from 'react-router-dom';
+//IMAGES
+import time from '../../../images/time.png'
+import playlist from '../../../images/playlist.png'
 
 function SingleVideo() {
 
@@ -46,23 +49,34 @@ function SingleVideo() {
               <div className="singlevideocontleft">
                 <img className='videocontainerIMG' src={vid?.snippet?.thumbnails?.medium?.url} alt="" />
                 <div className='videoTime'>{handleVideoTime(vid?.contentDetails?.duration)}</div>
+                {/* <img className='timeIcon' src={time} alt="" /> */}
+                <span class="material-symbols-outlined timeIcon">
+                  schedule
+                </span>
+                {/* <img className='playlistIcon' src={playlist} alt="" /> */}
+                <span class="material-symbols-outlined playlistIcon">
+                  playlist_play
+                </span>
               </div>
 
               <div className="singlevideocontright">
 
                 {
-                  (vid?.snippet?.title).length > 60
-                    ? <h5 style={{ fontSize: '14px' }}>{(vid?.snippet?.title).slice(0, 60)}...</h5>
+                  (vid?.snippet?.title).length > 70
+                    ? <h5 style={{ fontSize: '14px' }}>{(vid?.snippet?.title).slice(0, 70)}...</h5>
                     : <h5 style={{ fontSize: '14px' }}>{(vid?.snippet?.title)}</h5>
                 }
 
-
                 <div className="singlevideocontrightbottom">
-                  <p style={{ color: 'grey', fontSize: '14px' }}>{vid?.snippet?.channelTitle}</p>
+                  {
+                    (vid?.snippet?.channelTitle).length > 30
+                      ? <p style={{ color: 'grey' }}>{(vid?.snippet?.channelTitle).slice(0, 30)}...</p>
+                      : <p style={{ color: 'grey' }}>{vid?.snippet?.channelTitle}</p>
+                  }
                   {
                     (vid?.statistics?.viewCount).length > 6
-                      ? <p style={{ color: 'grey', fontSize: '14px' }}>{String(vid?.statistics?.viewCount).slice(0, 2)}M views - {formatDate(vid?.snippet?.publishedAt)} </p>
-                      : <p style={{ color: 'grey', fontSize: '14px' }}>{String(vid?.statistics?.viewCount).slice(0, 2)}K views - {formatDate(vid?.snippet?.publishedAt)}</p>
+                      ? <p style={{ color: 'grey' }}>{String(vid?.statistics?.viewCount).slice(0, 2)}M views - {formatDate(vid?.snippet?.publishedAt)} </p>
+                      : <p style={{ color: 'grey' }}>{String(vid?.statistics?.viewCount).slice(0, 2)}K views - {formatDate(vid?.snippet?.publishedAt)}</p>
                   }
                 </div>
 

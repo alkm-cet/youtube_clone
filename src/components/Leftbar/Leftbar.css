@@ -3,7 +3,7 @@
     max-height: calc(100vh - 60px);
     /* height: calc(100% - 60px); */
     /* border: 1px solid black; */
-    overflow: auto;
+    overflow: hidden;
 
     padding: 10px;
     position: sticky;
@@ -26,6 +26,15 @@
     background: rgb(186, 186, 186);
     border-radius: 10px;
 }
+
+.Leftbar:hover {
+    overflow: auto;
+}
+
+.Leftbar::-webkit-scrollbar {
+    width: 8px;
+}
+
 
 .section1 {
     border-bottom: 1px solid gainsboro;
@@ -54,7 +63,10 @@
 
 /* ----------------------------------SECTIONS */
 
-.section2, .section3, .section4, .section5 {
+.section2,
+.section3,
+.section4,
+.section5 {
     border-bottom: 1px solid gainsboro;
     display: flex;
     flex-direction: column;
@@ -63,14 +75,14 @@
 
 /* ---------------------------------- CLOSED */
 
-.leftbarclosed{
+.leftbarclosed {
     padding: 10px;
     width: 90px;
     max-height: calc(100vh - 60px);
     /* border: 1px solid black; */
 }
 
-.sectionclosedBTN{
+.sectionclosedBTN {
     cursor: pointer;
     width: 100%;
     height: auto;

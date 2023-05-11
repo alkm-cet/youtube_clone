@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './Navbar.css';
 //IMAGES
 import logo from '../../images/logo.png';
@@ -7,11 +7,23 @@ import avatar from '../../images/avatar.png'
 import { Link } from 'react-router-dom';
 //CONTEXT
 import { VideoContext } from '../context/VideoContext';
+//COMPONENTS
+import UploadVideo from './UploadVideo/UploadVideo';
+import Notifications from './Notifications/Notifications';
 
 
 function Navbar() {
 
-  const { handleSideBar  } = useContext(VideoContext);
+  const {
+    handleSideBar,
+    videoPopup,
+    setVideoPopup,
+    handleVideoPopup,
+    notificationsPopup,
+    setNotificationsPopup,
+    handleNotificationsPopup,
+    setIsSideBarOpen
+  } = useContext(VideoContext);
 
   return (
     <div className='Navbar'>
@@ -20,7 +32,7 @@ function Navbar() {
         <span class="material-symbols-outlined icons" onClick={handleSideBar}>
           menu
         </span>
-        <Link to='/'><img src={logo} alt="" style={{ width: '90px', cursor: 'pointer' }} /></Link>
+        <Link onClick={() => setIsSideBarOpen(true)} to='/'><img src={logo} alt="" style={{ width: '90px', cursor: 'pointer' }} /></Link>
       </div>
 
       <div className="searchdiv">
@@ -39,11 +51,17 @@ function Navbar() {
       </div>
 
       <div className="infodiv">
-        <span className="material-symbols-outlined icons">
+        <span onClick={handleVideoPopup} className="material-symbols-outlined icons">
           add_circle
+          {
+            videoPopup ? <UploadVideo /> : null
+          }
         </span>
-        <span className="material-symbols-outlined icons">
+        <span onClick={handleNotificationsPopup} className="material-symbols-outlined icons">
           notifications
+          {
+            notificationsPopup ? <Notifications /> : null
+          }
         </span>
         <img src={avatar} alt="avatar" style={{ width: '32px', height: '32px', borderRadius: '50%' }} />
       </div>
