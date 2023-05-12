@@ -85,8 +85,14 @@
     height: auto;
     display: flex;
     align-items: center;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     gap: 15px;
+}
+
+@media (max-width:478px) {
+    .svdileft {
+        gap: 0;
+    }
 }
 
 .videoinfochannalname {
@@ -219,6 +225,18 @@
     gap: 5px;
 }
 
+@media (max-width:478px) {
+    .descriptioncontainer {
+        min-height: 150px;
+        overflow: hidden;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+}
+
 .descriptionheader {
     width: 100%;
     height: 30px;
@@ -226,6 +244,15 @@
 
     display: flex;
     gap: 10px;
+}
+
+@media (max-width:478px) {
+    .descriptionheader {
+        flex-direction: column;
+        height: auto;
+        gap: 3px;
+        padding: 3px 0px;
+    }
 }
 
 /* .descriptionText {

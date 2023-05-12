@@ -51,6 +51,9 @@ function Navbar() {
       </div>
 
       <div className="infodiv">
+        <span class="material-symbols-outlined mobilSearch">
+          search
+        </span>
         <span onClick={handleVideoPopup} className="material-symbols-outlined icons">
           add_circle
           {
@@ -63,7 +66,7 @@ function Navbar() {
             notificationsPopup ? <Notifications /> : null
           }
         </span>
-        <img src={avatar} alt="avatar" style={{ width: '32px', height: '32px', borderRadius: '50%' }} />
+        <img src={avatar} alt="avatar" style={{ width: '40px', height: '40px', borderRadius: '50%' }} />
       </div>
 
 
