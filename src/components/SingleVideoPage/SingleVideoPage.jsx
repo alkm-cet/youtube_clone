@@ -91,7 +91,7 @@ function SingleVideoPage() {
                         <button className='infoBTN'>
                             <img src={download} alt="" style={{ width: '20px' }} />
                             Download</button>
-                        <button className='infoBTN'>
+                        <button className='infoBTNMORE'>
                             <img src={more} alt="" style={{ width: '20px' }} />
                         </button>
                         {/* <button className='infoBTN'>

@@ -61,9 +61,10 @@ function SingleVideo() {
 
               <div className="singlevideocontright">
 
+                {/* <h5 style={{ fontSize: '14px' }}>{(vid?.snippet?.title)}</h5> */}
                 {
                   (vid?.snippet?.title).length > 70
-                    ? <h5 style={{ fontSize: '14px' }}>{(vid?.snippet?.title).slice(0, 70)}...</h5>
+                    ? <h5 style={{ fontSize: '14px' }}>{(vid?.snippet?.title).slice(0, 70)}</h5>
                     : <h5 style={{ fontSize: '14px' }}>{(vid?.snippet?.title)}</h5>
                 }
 

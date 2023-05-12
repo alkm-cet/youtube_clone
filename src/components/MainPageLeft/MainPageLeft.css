@@ -7,5 +7,10 @@
     flex-grow: 2;
     overflow-x: hidden;
     /* border: 3px solid red; */
-
 }
+
+/* @media (max-width:1200px) {
+    .MainPageLeft {
+        flex-direction: column;
+    }
+} */

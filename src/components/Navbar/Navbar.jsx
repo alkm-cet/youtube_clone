@@ -29,7 +29,7 @@ function Navbar() {
     <div className='Navbar'>
 
       <div className="logodiv">
-        <span class="material-symbols-outlined icons" onClick={handleSideBar}>
+        <span className="material-symbols-outlined icons" onClick={handleSideBar}>
           menu
         </span>
         <Link onClick={() => setIsSideBarOpen(true)} to='/'><img src={logo} alt="" style={{ width: '90px', cursor: 'pointer' }} /></Link>

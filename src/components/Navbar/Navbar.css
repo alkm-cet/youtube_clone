@@ -13,6 +13,12 @@
     top: 0;
 }
 
+@media (max-width:478px) {
+    .logodiv span {
+        display: none !important;
+    }
+}
+
 .logodiv {
     /* border: 1px solid black; */
     height: 100%;
@@ -22,6 +28,13 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+
+}
+
+@media (max-width:478px) {
+    .logodiv span {
+        display: none !important;
+    }
 }
 
 .searchdiv {
@@ -36,6 +49,12 @@
     gap: 10px;
 }
 
+@media (max-width:478px) {
+    .searchdiv>span {
+        display: none !important;
+    }
+}
+
 .searchdivleft {
     width: 92%;
     height: 100%;
@@ -47,6 +66,12 @@
     align-items: center;
 }
 
+@media (max-width:478px) {
+    .searchdivleft{
+        width: 100%;
+    }
+}
+
 .searchdiv input {
     width: calc(100% - 60px);
     height: 40px;
@@ -54,6 +79,12 @@
     border-right: none;
     border-radius: 50px 0px 0px 50px;
     padding-left: 10px;
+}
+
+@media (max-width:478px) {
+    .searchdiv input {
+        display: none;
+    }
 }
 
 .searchdiv input:focus,
@@ -80,6 +111,13 @@ textarea:focus {
     transition: all .2s ease;
 }
 
+@media (max-width:478px) {
+    .searchdiv button  {
+        border: none;
+        background-color: white;
+    }
+}
+
 .searchdiv button:hover {
     background-color: rgb(230, 228, 228);
 }
@@ -96,6 +134,7 @@ textarea:focus {
     align-items: center;
     position: relative;
 }
+
 
 .icons:hover {
     background-color: rgb(231, 231, 231);
