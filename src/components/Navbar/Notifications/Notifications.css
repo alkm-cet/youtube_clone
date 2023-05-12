@@ -16,6 +16,13 @@
     z-index: 2;
 }
 
+@media (max-width:978px) {
+    .Notifications {
+        overflow: auto;
+    }
+}
+
+
 @media (max-width:578px) {
     .Notifications {
         width: 380px;
