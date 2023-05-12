@@ -61,24 +61,28 @@ function SingleVideo() {
 
               <div className="singlevideocontright">
 
-                {/* <h5 style={{ fontSize: '14px' }}>{(vid?.snippet?.title)}</h5> */}
-                {
-                  (vid?.snippet?.title).length > 70
-                    ? <h5 style={{ fontSize: '14px' }}>{(vid?.snippet?.title).slice(0, 70)}</h5>
-                    : <h5 style={{ fontSize: '14px' }}>{(vid?.snippet?.title)}</h5>
-                }
+                <img style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} src={vid?.snippet?.thumbnails?.medium?.url} alt="" />
 
-                <div className="singlevideocontrightbottom">
+                <div className="singlevideocontrightIfo">
                   {
-                    (vid?.snippet?.channelTitle).length > 30
-                      ? <p style={{ color: 'grey' }}>{(vid?.snippet?.channelTitle).slice(0, 30)}...</p>
-                      : <p style={{ color: 'grey' }}>{vid?.snippet?.channelTitle}</p>
+                    (vid?.snippet?.title).length > 70
+                      ? <h5 style={{ fontSize: '14px' }}>{(vid?.snippet?.title).slice(0, 70)}</h5>
+                      : <h5 style={{ fontSize: '14px' }}>{(vid?.snippet?.title)}</h5>
                   }
-                  {
-                    (vid?.statistics?.viewCount).length > 6
-                      ? <p style={{ color: 'grey' }}>{String(vid?.statistics?.viewCount).slice(0, 2)}M views - {formatDate(vid?.snippet?.publishedAt)} </p>
-                      : <p style={{ color: 'grey' }}>{String(vid?.statistics?.viewCount).slice(0, 2)}K views - {formatDate(vid?.snippet?.publishedAt)}</p>
-                  }
+
+                  <div className="singlevideocontrightbottom">
+                    {
+                      (vid?.snippet?.channelTitle).length > 30
+                        ? <p style={{ color: 'grey' }}>{(vid?.snippet?.channelTitle).slice(0, 30)}...</p>
+                        : <p style={{ color: 'grey' }}>{vid?.snippet?.channelTitle}</p>
+                    }
+                    {
+                      (vid?.statistics?.viewCount).length > 6
+                        ? <p style={{ color: 'grey' }}>{String(vid?.statistics?.viewCount).slice(0, 2)}M views - {formatDate(vid?.snippet?.publishedAt)} </p>
+                        : <p style={{ color: 'grey' }}>{String(vid?.statistics?.viewCount).slice(0, 2)}K views - {formatDate(vid?.snippet?.publishedAt)}</p>
+                    }
+                  </div>
+
                 </div>
 
               </div>

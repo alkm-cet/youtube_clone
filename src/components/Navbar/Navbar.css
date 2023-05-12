@@ -44,7 +44,7 @@
 }
 
 .searchdiv {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     max-width: 660px;
     width: 40%;
     height: 100%;
@@ -70,7 +70,7 @@
 .searchdivleft {
     width: 92%;
     height: 100%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 
     position: relative;
 

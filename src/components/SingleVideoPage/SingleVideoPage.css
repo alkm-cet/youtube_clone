@@ -280,3 +280,9 @@
         width: 100%;
     }
 }
+
+@media (max-width:478px) {
+    .singlepageright {
+        gap: 5px;
+    }
+}
