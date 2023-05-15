@@ -6,9 +6,9 @@
 
     display: flex;
 
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    /* flex-wrap: wrap; */
+    /* justify-content: center;
+    gap: 20px; */
 
     /* flex-grow: 1; */
 
@@ -25,6 +25,41 @@
         gap: 0;
     }
 }
+
+/* -----------------------------------------------allpageleft */
+
+.allpageleft {
+    /* border: 1px solid black; */
+}
+
+@media (max-width:478px) {
+    .allpageleft {
+        display: none;
+    }
+}
+
+.allpageright {
+    /* border: 1px solid black; */
+
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+@media (max-width:478px) {
+    .allpageright {
+        flex-direction: column;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        padding: 10px;
+        gap: 0;
+    }
+}
+
+/* ------------------------------------- */
 
 .videodiv {
     width: 360px;

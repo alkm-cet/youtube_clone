@@ -7,7 +7,7 @@ function MainPage() {
 
     return (
         <div className='MainPage'>
-            <Leftbar />
+            {/* <Leftbar /> */}
             <MainPageLeft />
         </div>
     )

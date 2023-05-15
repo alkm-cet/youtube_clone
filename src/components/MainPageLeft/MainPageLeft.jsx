@@ -1,9 +1,11 @@
 import React from 'react';
 import './MainPageLeft.css'
+//PAGES
 import AllVideoPage from '../AllVideoPage/AllVideoPage';
 import SingleVideoPage from '../SingleVideoPage/SingleVideoPage';
 //ROUTE
 import { Routes, Route, Link } from 'react-router-dom';
+
 
 function MainPageLeft() {
     return (

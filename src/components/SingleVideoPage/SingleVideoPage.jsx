@@ -1,10 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './SingleVideoPage.css'
 import { useParams } from 'react-router-dom'
 //CONTEXT
 import { VideoContext } from '../context/VideoContext';
 // PAGES
-import SingleVideocontainer from './SinglePageVideos/SingleVideocontainer'
+import SingleVideocontainer from './SinglePageVideos/SingleVideocontainer';
+import LeftbarSinglePage from '../Leftbar/LeftbarSinglePage/LeftbarSinglePage';
 //IMAGES
 import like from '../../images/like.png'
 import dislike from '../../images/dislike.png'
@@ -13,6 +14,8 @@ import download from '../../images/download.png'
 import donation from '../../images/donation.png'
 import clip from '../../images/clip.png';
 import more from '../../images/more.png'
+
+
 
 
 function SingleVideoPage() {
@@ -47,10 +50,16 @@ function SingleVideoPage() {
         return newStr;
     }
 
+    //-------------------------- ShowMore
+    const [showMore, setShowMore] = useState(false);
+
+    const handleShowMore = () => {
+        setShowMore(prev => !prev)
+    }
 
     return (
         <div className='SingleVideoPage'>
-
+            <LeftbarSinglePage />
             <div className="singlepageleft">
                 <iframe className='iframe' src={`https://www.youtube.com/embed/${id}`} allowfullscreen frameborder="0" allow='autoplay' allowFullScreen></iframe>
 
@@ -90,20 +99,23 @@ function SingleVideoPage() {
                         </button>
                         <button className='infoBTN'>
                             <img src={download} alt="" style={{ width: '20px' }} />
-                            Download</button>
-                        <button className='infoBTNMORE'>
-                            <img src={more} alt="" style={{ width: '20px' }} />
+                            Download
                         </button>
                         {/* <button className='infoBTN'>
                             <img src={donation} alt="" style={{ width: '20px' }} />
-                            Thanks</button>
-                        <button className='infoBTN'>
+                            Thanks
+                        </button> */}
+                        {/* <button className='infoBTN'>
                             <img src={clip} alt="" style={{ width: '20px' }} />
-                            Clip</button> */}
+                            Clip
+                        </button> */}
+                        <button className='infoBTNMORE'>
+                            <img src={more} alt="" style={{ width: '20px' }} />
+                        </button>
                     </div>
                 </div>
 
-                <div className="descriptioncontainer">
+                <div onClick={handleShowMore} className="descriptioncontainer">
                     <div className="descriptionheader">
                         {
                             (SingleVideo?.statistics?.viewCount)?.length > 6
@@ -116,12 +128,25 @@ function SingleVideoPage() {
                         <p style={{ fontSize: '14px', fontWeight: '600', color: 'grey' }}>
                             #{SingleVideo?.snippet?.tags?.[0]} #{SingleVideo?.snippet?.tags?.[1]}</p>
                     </div>
-
-                    <p>
-                        {String(SingleVideo?.snippet?.description).slice(0, 600)}...
-                    </p>
+                    {
+                        showMore
+                            ? <p>
+                                {
+                                    String(SingleVideo?.snippet?.description).split('.').map(line =>
+                                        <span>
+                                            {line.trim()}.
+                                            <br />
+                                        </span>
+                                    )
+                                }
+                                <p style={{ display: 'inline-block', fontWeight: '700' }} >Show Less</p>
+                            </p>
+                            : <p>
+                                {String(SingleVideo?.snippet?.description).slice(0, 600)}...
+                                <p style={{ display: 'inline-block', fontWeight: '700' }}>Show More</p>
+                            </p>
+                    }
                 </div>
-
             </div>
 
             <div className="singlepageright">

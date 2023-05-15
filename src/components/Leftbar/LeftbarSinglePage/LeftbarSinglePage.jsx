@@ -1,41 +1,50 @@
-import React, { useContext, useState, useEffect, useRef } from 'react';
-import './Leftbar.css';
+import React, { useContext } from 'react';
+import './LeftbarSinglePage.css';
 //IMAGES
-import homeicon from '../../images/homeicon.png'
-import shortsicon from '../../images/shortsicon.png'
-import subscriptionicon from '../../images/subscriptionicon.png'
-import bookcaseicon from '../../images/bookcaseicon.png'
-import clockicon from '../../images/clockicon.png'
-import videoicon from '../../images/videoicon.png'
-import historyicon from '../../images/historyicon.png'
-import likeicon from '../../images/likeicon.png'
-import downarrowicon from '../../images/downarrowicon.png'
-import subs1 from '../../images/subs1.png'
-import subs2 from '../../images/subs2.png'
-import subs3 from '../../images/subs3.png'
-import trending from '../../images/trending.png'
-import music from '../../images/music.png'
-import live from '../../images/live.png'
-import gaming from '../../images/gaming.png'
-import sports from '../../images/sports.png'
-import premium from '../../images/premium.png'
-import studio from '../../images/studio.png'
-import YTmusic from '../../images/YTmusic.png'
-import kids from '../../images/kids.png'
+import homeicon from '../../../images/homeicon.png'
+import shortsicon from '../../../images/shortsicon.png'
+import subscriptionicon from '../../../images/subscriptionicon.png'
+import bookcaseicon from '../../../images/bookcaseicon.png'
+import clockicon from '../../../images/clockicon.png'
+import videoicon from '../../../images/videoicon.png'
+import historyicon from '../../../images/historyicon.png'
+import likeicon from '../../../images/likeicon.png'
+import downarrowicon from '../../../images/downarrowicon.png'
+import subs1 from '../../../images/subs1.png'
+import subs2 from '../../../images/subs2.png'
+import subs3 from '../../../images/subs3.png'
+import trending from '../../../images/trending.png'
+import music from '../../../images/music.png'
+import live from '../../../images/live.png'
+import gaming from '../../../images/gaming.png'
+import sports from '../../../images/sports.png'
+import premium from '../../../images/premium.png'
+import studio from '../../../images/studio.png'
+import YTmusic from '../../../images/YTmusic.png'
+import kids from '../../../images/kids.png';
+import logo from '../../../images/logo.png'
 //CONTEXT
-import { VideoContext } from '../context/VideoContext';
+import { VideoContext } from '../../context/VideoContext';
 // ROUTER
 import { Link } from 'react-router-dom';
 
-function Leftbar() {
+function LeftbarSinglePage() {
 
-    const { isSideBarOpen, setIsSideBarOpen } = useContext(VideoContext)
+    const { isSideBarOpen, setIsSideBarOpen, handleSideBar } = useContext(VideoContext)
+
 
     return (
         <>
             {
                 isSideBarOpen
-                    ? <div className='Leftbar'>
+                    ? <div className='LeftbarSinglePage'>
+                        <div onClick={() => setIsSideBarOpen(false)} className="overlay"></div>
+                        <div className="leftbarsinglepagetop">
+                            <span className="material-symbols-outlined icons" onClick={handleSideBar}>
+                                menu
+                            </span>
+                            <Link onClick={() => setIsSideBarOpen(true)} to='/'><img src={logo} alt="" style={{ width: '90px', cursor: 'pointer' }} /></Link>
+                        </div>
                         <section className='section1'>
                             <Link to='/' style={{
                                 color: 'black', textDecoration: 'none'
@@ -147,33 +156,12 @@ function Leftbar() {
                             </div>
                         </section>
                     </div>
-                    : <div className="leftbarclosed">
-                        <Link to='/' style={{
-                            color: 'black', textDecoration: 'none'
-                        }}><div className="sectionclosedBTN">
-                                <img src={homeicon} alt="" style={{ width: '25px' }} />
-                                <p style={{ fontSize: '12px' }}>Home</p>
-                            </div></Link>
-
-                        <div className="sectionclosedBTN">
-                            <img src={shortsicon} alt="" style={{ width: '25px' }} />
-                            <p style={{ fontSize: '12px' }}>Shorts</p>
-                        </div>
-
-                        <div className="sectionclosedBTN">
-                            <img src={subscriptionicon} alt="" style={{ width: '25px' }} />
-                            <p style={{ fontSize: '12px' }}>Subscriptions</p>
-                        </div>
-
-                        <div className="sectionclosedBTN">
-                            <img src={bookcaseicon} alt="" style={{ width: '25px' }} />
-                            <p style={{ fontSize: '12px' }}>Library</p>
-                        </div>
-                    </div>
+                    : null
             }
         </>
+
 
     )
 }
 
-export default Leftbar
+export default LeftbarSinglePage
