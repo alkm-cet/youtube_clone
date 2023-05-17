@@ -26,7 +26,23 @@ function VideoContextProvider({ children }) {
 
     }, [])
 
-    console.log(video)
+    //------------------------------ FETCHING SEARCH DATA
+    const [searchedVideo, setSearchedVideo] = useState({});
+    const [seacrhWord, setSearchWord] = useState('');
+    const searchUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${seacrhWord}&key=AIzaSyAIUb_hRjq8uVb5Pv6k8Ls02j0qR3ws-bk`
+
+    const handleSearchWord = (e) => {
+        setSearchWord(e.target.value)
+    }
+
+    const searchVideos = () => {
+        try {
+            axios.get(searchUrl).then((response) => setSearchedVideo(response.data));
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
     //-------------------------------------------------------VIDEO DATE FORMAT
     function formatDate(date) {
         const diff = Math.floor((new Date() - new Date(date)) / 1000); // zaman farkını saniye cinsinden hesapla
@@ -86,6 +102,11 @@ function VideoContextProvider({ children }) {
                 notificationsPopup,
                 setNotificationsPopup,
                 handleNotificationsPopup,
+                searchedVideo,
+                seacrhWord,
+                setSearchWord,
+                handleSearchWord,
+                searchVideos
             }}>
             {children}
         </VideoContext.Provider>

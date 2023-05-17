@@ -4,7 +4,7 @@ import './Navbar.css';
 import logo from '../../images/logo.png';
 import avatar from '../../images/avatar.png'
 //ROUTER
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 //CONTEXT
 import { VideoContext } from '../context/VideoContext';
 //COMPONENTS
@@ -22,10 +22,28 @@ function Navbar() {
     notificationsPopup,
     setNotificationsPopup,
     handleNotificationsPopup,
-    setIsSideBarOpen
+    setIsSideBarOpen,
+    handleSearchWord,
+    seacrhWord,
+    searchVideos,
+    searchedVideo,
   } = useContext(VideoContext);
 
+  const navigate = useNavigate();
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      searchVideos();
+      e.preventDefault();
+      navigate('/SearchedVideosPage');
+    }
+  };
+
+  console.log(seacrhWord)
+  console.log(searchedVideo)
+
   return (
+
     <div className='Navbar'>
 
       <div className="logodiv">
@@ -37,12 +55,14 @@ function Navbar() {
 
       <div className="searchdiv">
         <div className="searchdivleft">
-          <input type="text" placeholder='Search' style={{ fontSize: '16px' }} />
-          <button>
-            <span class="material-symbols-outlined">
-              search
-            </span>
-          </button>
+          <input onKeyDown={handleKeyDown} onChange={handleSearchWord} type="text" placeholder='Search' style={{ fontSize: '16px' }} />
+          <Link to='/SearchedVideosPage'>
+            <button className='searchBTN'>
+              <span class="material-symbols-outlined">
+                search
+              </span>
+            </button>
+          </Link>
         </div>
 
         <span className="material-symbols-outlined icons">
