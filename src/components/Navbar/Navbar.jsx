@@ -46,7 +46,7 @@ function Navbar() {
 
     <div className='Navbar'>
 
-      <div className="logodiv">
+      <div className="logodiv a">
         <span className="material-symbols-outlined icons" onClick={handleSideBar}>
           menu
         </span>
